@@ -1,18 +1,19 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios"
-const baseURL = 'http://localhost:3000/';
+const baseURL = 'http://localhost:3000';
 
 export const registerApi = createAsyncThunk(
     'user/register',
     async (data) => {
-        const res = await axios.post(baseURL+'register', data)
-        return res.data
-    }
+    const res = await axios.post(`${baseURL}/register`, data.user)
+    data.navigate('/login')
+    return res.data
+  }
 )
 export const loginApi = createAsyncThunk(
     'user/login',
     async (data) => {
-        const res = await axios.post(baseURL+'login' , data.value)
+        const res = await axios.post(`${baseURL}/login` , data.user)
         data.navigate('/home')
         return res.data
     }
