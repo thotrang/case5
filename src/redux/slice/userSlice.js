@@ -12,7 +12,8 @@ const initialState = {
     token: '',
     checkEmailExitsted: false,
     checkUsernameExitsted: false,
-    checkPassword:false
+    checkPassword: false,
+    listAllUser: []
 
 }
 export const userSlice = createSlice({
@@ -23,13 +24,14 @@ export const userSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
+            //register
             .addCase(registerApi.fulfilled, (state, action) => {
-                
+
                 state.checkEmailExitsted = false
                 state.checkUsernameExitsted = false
-                state.isRegisterSuccess =true
+                state.isRegisterSuccess = true
                 state.user = action.payload.user
-                 alert('register success')
+                alert('register success')
 
             })
             .addCase(registerApi.rejected, (state, action) => {
@@ -44,6 +46,7 @@ export const userSlice = createSlice({
                 }
 
             })
+            //login
             .addCase(loginApi.fulfilled, (state, action) => {
                 localStorage.setItem('accessToken', JSON.stringify(action.payload.token));
                 state.token = action.payload.token
@@ -57,6 +60,8 @@ export const userSlice = createSlice({
                     state.checkPassword = true
                 }
             })
+            // get all
+     
     }
 })
 export const checkPassword = (state) => state.user.checkPassword
