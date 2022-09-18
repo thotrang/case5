@@ -10,50 +10,51 @@ import {
   Event,
   School,
 } from "@material-ui/icons";
+import {Link} from "react-router-dom"
 import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
 
 
-export default function Sidebar() {
+export default function Sidebar(propt) {
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
         <ul className="sidebarList">
           <li className="sidebarListItem">
             <RssFeed className="sidebarIcon" />
-            <a href="#" className="sidebarListItemText">Feed</a>
+            <Link className="sidebarListItemText">Feed</Link>
           </li>
           <li className="sidebarListItem">
             <Chat className="sidebarIcon" />
-            <a href="#" className="sidebarListItemText">Chats</a>
+            <Link className="sidebarListItemText">Chats</Link>
           </li>
           <li className="sidebarListItem">
             <PlayCircleFilledOutlined className="sidebarIcon" />
-            <span className="sidebarListItemText">Videos</span>
+            <Link className="sidebarListItemText">Videos</Link>
           </li>
           <li className="sidebarListItem">
             <Group className="sidebarIcon" />
-            <span className="sidebarListItemText">Groups</span>
+            <Link className="sidebarListItemText">Groups</Link>
           </li>
           <li className="sidebarListItem">
             <Bookmark className="sidebarIcon" />
-            <span className="sidebarListItemText">Bookmarks</span>
+            <Link className="sidebarListItemText">Bookmarks</Link>
           </li>
           <li className="sidebarListItem">
             <HelpOutline className="sidebarIcon" />
-            <span className="sidebarListItemText">Questions</span>
+            <Link className="sidebarListItemText">Questions</Link>
           </li>
           <li className="sidebarListItem">
             <WorkOutline className="sidebarIcon" />
-            <span className="sidebarListItemText">Jobs</span>
+            <Link className="sidebarListItemText">Jobs</Link>
           </li>
           <li className="sidebarListItem">
             <Event className="sidebarIcon" />
-            <span className="sidebarListItemText">Events</span>
+            <Link className="sidebarListItemText">Events</Link>
           </li>
           <li className="sidebarListItem">
             <School className="sidebarIcon" />
-            <span className="sidebarListItemText">Courses</span>
+            <Link className="sidebarListItemText">Courses</Link>
           </li>
         </ul>
         <button className="sidebarButton">Show More</button>

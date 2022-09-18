@@ -94,3 +94,7 @@
   object-fit: cover;
   cursor: pointer;
 }
+.myImg {
+  width: 35px;
+  border-radius:20px;
+}

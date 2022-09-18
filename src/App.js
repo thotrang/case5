@@ -13,7 +13,9 @@ function App() {
       <Routes>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
-        <Route path = "/" element={<Home></Home>}></Route>
+        <Route path = '/' element={<Home></Home>}></Route>
+        <Route path = '/home' element={<Home></Home>}></Route>
+
         {/* <Route path = "/Profile/:id" element = {<Profile></Profile>}></Route> */}
       </Routes>
       </BrowserRouter>

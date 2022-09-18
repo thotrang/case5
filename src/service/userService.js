@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import customAxios from "./apiToken"
+import {customAxios} from "./apiToken"
 const baseURL = 'http://localhost:3000';
 
 export const registerApi = createAsyncThunk(
@@ -9,6 +9,7 @@ export const registerApi = createAsyncThunk(
     data.navigate('/login')
     return res.data
   }
+
 )
 export const loginApi = createAsyncThunk(
     'user/login',
@@ -28,7 +29,7 @@ export const updateApi = createAsyncThunk(
 export const getAllApi = createAsyncThunk(
     'user/getAll',
     async ()=>{
-        const res = await customAxios.get(`${baseURL}`)
+        const res = await customAxios.get(`${baseURL}/users`)
         return res.data
     }
 )
@@ -42,7 +43,7 @@ export const getDetailApi = createAsyncThunk(
 export const getUserToLocalstorageApi = createAsyncThunk(
     'user/toLocalstorage',
     async ()=> {
-        const res = await customAxios.get(`${baseURL}/getUserToLocalstorage`)
+        const res = await customAxios.get(`${baseURL}/users/getUserToLocalstorage`)
         return res.data
     }
 )
