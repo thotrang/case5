@@ -10,26 +10,26 @@ import { checkToken } from "../../service/apiToken";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllApi, getUserToLocalstorageApi } from "../../service/userService";
 import {myProfile} from "../../redux/slice/userSlice"
+import {getAllPost} from "../../service/postService";
+
 export default function Home() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [myProf,setMyProf] = useState({})
-  const myProfSelector = useSelector(myProfile)
+  const myProfSelector = useSelector(myProfile);
+  const postSelector = useSelector(state => state.posts)
   useEffect(() => {
     if (!checkToken()) {
-      console.log(checkToken());
       navigate('/login')
     }
     dispatch(getUserToLocalstorageApi())
+    dispatch(getAllPost())
   },[])
-
   return (
     <>
-
       <Topbar profile = {myProfSelector}/>
       <div className="homeContainer">
         <Sidebar />
-        <Feed />
+        <Feed post = {postSelector}/>
         <Rightbar />
       </div>
     </>

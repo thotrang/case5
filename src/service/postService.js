@@ -1,37 +1,39 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-const baseURL = "https://localhost:3000/";
-// import customAxios from './apiToken'
 import axios  from "axios";
+import {customAxios} from "./apiToken";
+
+const baseURL = "http://localhost:3000";
+ // import customAxios from './apiToken'
 export const getAllPost = createAsyncThunk(
     'posts/getAll',
     async () => {
-        const res = await axios.get(`${baseURL}/posts`);
-        return res.data;
+        const res = await customAxios.get(`${baseURL}/posts`)
+        return res.data
     }
 )
 export const getDetailPost = createAsyncThunk(
     'posts/detail',
     async (id) => {
-        const res = await axios.get(`${baseURL}/detail//posts/${id}`)
+        const res = await axios.get(`${baseURL}/detail/posts/${id}`)
         return res.data;
     }
 )
 export const addCommentPost = createAsyncThunk(
-    'post/add',
+    'posts/add',
     async () => {
         const res = await axios.post(`${baseURL}/posts`);
         return res.data;
     }
 )
 export const updatePost = createAsyncThunk(
-    'post/update',
+    'posts/update',
     async (id) => {
         const res = await axios.put(`${baseURL}/${id}`)
         return res.data;
     }
 )
 export const deletePost  = createAsyncThunk(
-    'post/delete',
+    'posts/delete',
     async (id) => {
         const res = await axios.delete(`${baseURL}/${id}`)
     }

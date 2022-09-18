@@ -3,7 +3,7 @@ import { Search, Person, Chat, Notifications } from "@material-ui/icons";
 import {Link} from "react-router-dom" 
 import { Users } from "../../dummyData";
 export default function Topbar(propt) {
-  console.log(propt.profile);
+
   return (
 
     <div className="topbarContainer">
