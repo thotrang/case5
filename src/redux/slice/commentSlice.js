@@ -12,7 +12,7 @@ const initialState = {
     comment : ""
 }
 export const commentSlice = createSlice({
-    name: "comment",
+    name: "comments",
     initialState,
     extraReducers: (builder) => {
         builder.addCase(getAllComment.fulfilled, (state, action) => {
