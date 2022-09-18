@@ -5,14 +5,14 @@ import { Posts } from "../../dummyData";
 
 export default function Feed(props) {
     const posts = props.post.posts
-    console.log(Posts, "....")
+    // console.log(Posts, "....")
 
   return (
     <div className="feed">
       <div className="feedWrapper">
         <Share />
          {Posts.map((post) => (
-          <Post post={post} />
+          <Post post={post} key={post.id} />
         ))}
       </div>
     </div>

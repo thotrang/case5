@@ -18,7 +18,8 @@ export default function Post({ post }) {
                     <div className="postTopLeft">
                         <img
                             className="postProfileImg"
-                            src={Users.filter((u) => u.id === post?.userId)[0].profilePicture}
+                            // src={Users.filter((u) => u.id === post?.userId)[0].profilePicture}
+                            src={"https://upanh123.com/wp-content/uploads/2020/11/anh-tho-chibi.0.jpg"}
                             alt=""
                         />
                         <span className="postUsername">

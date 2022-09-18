@@ -73,8 +73,8 @@ export default function Sidebar(propt) {
         {/*<button className="sidebarButton">Show More</button>*/}
         <hr className="sidebarHr" />
         <ul className="sidebarFriendList">
-          {propt.listUser.map((u) => (
-            <CloseFriend key={u.id} user={u} />
+          {propt.listUser.map((u, index) => (
+            <CloseFriend key={index} user={u} />
           ))}
         </ul>
       </div>
