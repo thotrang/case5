@@ -70,11 +70,12 @@ export const userSlice = createSlice({
                 console.log(action.error);
             })
             .addCase(getAllApi.fulfilled,(state,action)=>{
-                console.log(action.payload);
+                state.listAllUser = action.payload
             })
      
     }
 })
+export const listAllUser = (state) => state.user.listAllUser
 export const myProfile = (state) => state.user.myProfile
 export const checkPassword = (state) => state.user.checkPassword
 export const checkEmailExitsted = (state) => state.user.checkEmailExitsted;
