@@ -55,7 +55,7 @@ export const Posts = [
   {
     id: 1,
     desc: "Love For All, Hatred For None.",
-    photo: "assets/post/1.jpeg",
+    photo: "https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg",
     date: "5 mins ago",
     userId: 1,
     like: 32,

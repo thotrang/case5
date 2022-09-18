@@ -70,7 +70,7 @@ export default function Sidebar(propt) {
         {/*  </li>*/}
         {/*</ul>*/}
         <TopSideBar/>
-        <button className="sidebarButton">Show More</button>
+        {/*<button className="sidebarButton">Show More</button>*/}
         <hr className="sidebarHr" />
         <ul className="sidebarFriendList">
           {propt.listUser.map((u) => (
