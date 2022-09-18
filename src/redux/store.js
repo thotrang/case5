@@ -8,7 +8,7 @@ export const store = configureStore({
     reducer: {
         friend: friendSlice.reducer,
         like: likeSlice.reducer,
-        post: postSlice.reducer,
+        // post: postSlice.reducer,
         user: userSlice.reducer,
 
     }

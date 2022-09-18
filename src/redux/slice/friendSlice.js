@@ -1,11 +1,20 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {addFriendThunk, getAllFriendThunk, getDetailFriendThunk, updateFriendThunk} from "../../service/friendService";
+import {
+    addFriendThunk,
+    deleteFriendThunk,
+    getAllFriendThunk,
+    getDetailFriendThunk,
+    updateFriendThunk
+} from "../../service/friendService";
 
 const friendSlice = createSlice({
     name: 'friends',
     initialState: {
         friends: [],
         friend: {}
+    },
+    reducers: {
+
     },
     extraReducers: (builder) => {
         builder

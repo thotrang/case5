@@ -1,21 +1,28 @@
 import './App.css';
-import {BrowserRouter,Routes, Route} from "react-router-dom";
+import { Provider } from "react-redux";
+import { Routes, Route, BrowserRouter } from "react-router-dom"
+import { store } from './redux/store';
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
+// import Home from './components/home/Home';
 import Home from "./pages/home/Home";
+// import {BrowserRouter,Routes, Route} from "react-router-dom";
 
 function App() {
-  return (
-      <BrowserRouter>
-          <Routes>
-              {/*<Route path="/" element={<Layout />}>*/}
-              {/*    <Route index element={<Home />} />*/}
-              {/*    <Route path="blogs" element={<Blogs />} />*/}
-              {/*    <Route path="contact" element={<Contact />} />*/}
-              {/*    <Route path="*" element={<NoPage />} />*/}
-              {/*</Route>*/}
-              <Route path={"/"} element={<Home/>}/>
-          </Routes>
-      </BrowserRouter>
-  );
+    return (
+        <Provider store={store}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path={"/"} element={<Home/>}/>
+                    <Route path="/register" element={<Register/>}/>
+                    <Route path="/login" element={<Login/>}/>
+                    {/*<Route path = "/home" element={<Home/>}/>*/}
+                </Routes>
+            </BrowserRouter>
+        </Provider>
+    );
 }
 
 export default App;
+
+

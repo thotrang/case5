@@ -2,9 +2,12 @@ import { createSlice} from "@reduxjs/toolkit";
 import {addLikeThunk, deleteLikeThunk, getAllLikeThunk, updateLikeThunk} from "../../service/likeService";
 
 const likeSlice = createSlice({
-    name: '',
+    name: 'like',
     initialState: {
         likes: []
+    },
+    reducers: {
+
     },
     extraReducers: (builder) => {
         builder
