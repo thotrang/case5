@@ -29,7 +29,9 @@ export default function Home() {
       <Topbar profile = {myProfSelector}/>
       <div className="homeContainer">
         <Sidebar />
-        <Feed post = {postSelector}/>
+        <Feed post = {postSelector}
+              myAvatar = {(myProfSelector.avatar) ? myProfSelector.avatar : "https://upanh123.com/wp-content/uploads/2020/11/anh-tho-chibi.0.jpg" }
+        />
         <Rightbar />
       </div>
     </>

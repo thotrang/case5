@@ -41,3 +41,4 @@ export const commentSlice = createSlice({
             })
     }
 })
+export default commentSlice.reducer

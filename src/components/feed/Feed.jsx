@@ -5,12 +5,13 @@ import { Posts } from "../../dummyData";
 
 export default function Feed(propt) {
     const posts = propt.post.posts
+
   return (
     <div className="feed">
       <div className="feedWrapper">
-        <Share />
+        <Share  myAvatar={propt.myAvatar} />
          {posts.map((p) => (
-          <Post key={p.id} post={p} />
+          <Post key={p.id} post={p}/>
         ))}
       </div>
     </div>
