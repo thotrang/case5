@@ -1,7 +1,8 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
+import axios  from "axios";
+
 const baseURL = "https://localhost:3000/";
 // import customAxios from './apiToken'
-import axios  from "axios";
 export const getAllComment = createAsyncThunk(
     'comment/getAll',
     async () => {

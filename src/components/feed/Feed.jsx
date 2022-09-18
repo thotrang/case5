@@ -3,16 +3,15 @@ import Share from "../share/Share";
 import "./feed.css";
 import { Posts } from "../../dummyData";
 
-export default function Feed(props) {
-    const posts = props.post.posts
-    // console.log(Posts, "....")
+export default function Feed(propt) {
+    const posts = propt.post.posts
 
   return (
     <div className="feed">
       <div className="feedWrapper">
-        <Share />
-         {Posts.map((post) => (
-          <Post post={post} key={post.id} />
+        <Share  myAvatar={propt.myAvatar ? propt.myAvatar : `https://upanh123.com/wp-content/uploads/2020/11/anh-tho-chibi.0.jpg`} />
+         {Posts.map((p) => (
+          <Post key={p.id} post={p}/>
         ))}
       </div>
     </div>

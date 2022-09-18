@@ -2,10 +2,14 @@ import "./post.css";
 import { MoreVert } from "@material-ui/icons";
 import { Users } from "../../dummyData";
 import { useState } from "react";
+import Comments from "./comments/Comments";
 
 export default function Post({ post }) {
     const [like,setLike] = useState(post.like)
     const [isLiked,setIsLiked] = useState(false)
+    const [isComment, setIsComment] = useState(false)
+    // console.log(isComment, "....")
+
 
     const likeHandler =()=>{
         setLike(isLiked ? like-1 : like+1)
@@ -38,15 +42,19 @@ export default function Post({ post }) {
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
-                        <img className="likeIcon" src="" onClick={likeHandler} alt="" />
-                        <img className="likeIcon" src="" onClick={likeHandler} alt="" />
+                        <img className="likeIcon" src="https://raw.githubusercontent.com/safak/youtube/react-social-ui/public/assets/like.png" onClick={likeHandler} alt="" />
+                        <img className="likeIcon" src="https://raw.githubusercontent.com/safak/youtube/react-social-ui/public/assets/heart.png" onClick={likeHandler} alt="" />
                         <span className="postLikeCounter">{like} people like it</span>
                     </div>
                     <div className="postBottomRight">
-                        <span className="postCommentText">{post.comment} comments</span>
+                        <span className="postCommentText" onClick={e => setIsComment(!isComment)}>{post.comment} comments</span>
                     </div>
+
                 </div>
+                <br/>
+                {isComment && <Comments/>}
             </div>
+
         </div>
     );
 }
