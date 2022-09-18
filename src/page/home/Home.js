@@ -9,13 +9,14 @@ import { useNavigate } from "react-router-dom";
 import { checkToken } from "../../service/apiToken";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllApi, getUserToLocalstorageApi } from "../../service/userService";
-import {myProfile} from "../../redux/slice/userSlice"
+import {myProfile, listAllUser} from "../../redux/slice/userSlice"
 import {getAllPost} from "../../service/postService";
 
 export default function Home() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const myProfSelector = useSelector(myProfile);
+  const listUser = useSelector(listAllUser)
   const postSelector = useSelector(state => state.posts)
   useEffect(() => {
     if (!checkToken()) {
@@ -23,12 +24,13 @@ export default function Home() {
     }
     dispatch(getUserToLocalstorageApi())
     dispatch(getAllPost())
+    dispatch(getAllApi())
   },[])
   return (
     <>
       <Topbar profile = {myProfSelector}/>
       <div className="homeContainer">
-        <Sidebar />
+        <Sidebar listUser={listUser}/>
         <Feed post = {postSelector}/>
         <Rightbar />
       </div>
