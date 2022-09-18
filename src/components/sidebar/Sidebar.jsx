@@ -13,9 +13,20 @@ import {
 import {Link} from "react-router-dom"
 import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+import {getAllFriendThunk} from "../../service/friendService";
 
 
 export default function Sidebar(propt) {
+  const {friends} = useSelector(state => state.friend);
+  const dispatch = useDispatch();
+  console.log(friends,"aaaaaaaa")
+  // console.log(users, "user");
+  useEffect(() => {
+    console.log("1")
+    dispatch(getAllFriendThunk());
+  }, [])
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
