@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginApi, registerApi } from "../../service/userService";
+import { getAllApi, getUserToLocalstorageApi, loginApi, registerApi } from "../../service/userService";
 const initialState = {
     user: {
         username: "",
@@ -13,7 +13,8 @@ const initialState = {
     checkEmailExitsted: false,
     checkUsernameExitsted: false,
     checkPassword: false,
-    listAllUser: []
+    listAllUser: [],
+    myProfile: {}
 
 }
 export const userSlice = createSlice({
@@ -35,6 +36,7 @@ export const userSlice = createSlice({
 
             })
             .addCase(registerApi.rejected, (state, action) => {
+                console.log(action);
                 if (action.error.message.includes('411')) {
                     state.checkEmailExitsted = false
                     state.checkUsernameExitsted = true
@@ -60,10 +62,20 @@ export const userSlice = createSlice({
                     state.checkPassword = true
                 }
             })
-            // get all
+            // get userLocal
+            .addCase(getUserToLocalstorageApi.fulfilled, (state, action) => {
+                state.myProfile = action.payload
+            })
+            .addCase(getUserToLocalstorageApi.rejected,(state,action)=>{
+                console.log(action.error);
+            })
+            .addCase(getAllApi.fulfilled,(state,action)=>{
+                console.log(action.payload);
+            })
      
     }
 })
+export const myProfile = (state) => state.user.myProfile
 export const checkPassword = (state) => state.user.checkPassword
 export const checkEmailExitsted = (state) => state.user.checkEmailExitsted;
 export const checkUsernameExitsted = (state) => state.user.checkUsernameExitsted;
