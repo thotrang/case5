@@ -14,7 +14,7 @@ export const postSlice = createSlice({
                 state.posts = action.payload
             })
             .addCase(getAllPost.rejected, (state, action)=>{
-                console.log('loi')
+                console.log(action)
             })
 
 }
