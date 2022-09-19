@@ -67,7 +67,7 @@ export const userSlice = createSlice({
                 state.myProfile = action.payload
             })
             .addCase(getUserToLocalstorageApi.rejected,(state,action)=>{
-                console.log(action.error);
+                console.log(action);
             })
             .addCase(getAllApi.fulfilled,(state,action)=>{
                 state.listAllUser = action.payload

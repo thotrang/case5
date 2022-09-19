@@ -1,14 +1,15 @@
 import "./share.css";
 import {PermMedia, Label,Room, EmojiEmotions} from "@material-ui/icons"
 
-export default function Share() {
+export default function Share(propt) {
+
   return (
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <img className="shareProfileImg" src="/assets/person/1.jpeg" alt="" />
+          <img className="shareProfileImg" src={(propt.myAvatar.avatar)?propt.myAvatar.avatar:'https://upanh123.com/wp-content/uploads/2020/11/anh-tho-chibi.0.jpg'} alt="" />
           <input
-            placeholder="What's in your mind Safak?"
+            placeholder={`What's in your mind  ${propt.myAvatar.name}`}
             className="shareInput"
           />
         </div>

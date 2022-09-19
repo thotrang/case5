@@ -21,8 +21,9 @@ export default function Sidebar(propt) {
       <div className="sidebarWrapper">
         <ul className="sidebarList">
           <li className="sidebarListItem">
-            <RssFeed className="sidebarIcon" />
-            <Link className="sidebarListItemText">Feed</Link>
+            <img className="myImg" src={(propt.myProfile.avatar)?propt.myProfile.avatar:'https://upanh123.com/wp-content/uploads/2020/11/anh-tho-chibi.0.jpg'}/>
+            
+            <Link className="sidebarListItemText">{propt.myProfile.name}</Link>
           </li>
           <li className="sidebarListItem">
             <Chat className="sidebarIcon" />

@@ -36,6 +36,7 @@ export default function Topbar(propt) {
           </div>
         </div>
         <span className="topbarLink"><img className="myImg" src={(propt.profile.avatar)?propt.profile.avatar:'https://upanh123.com/wp-content/uploads/2020/11/anh-tho-chibi.0.jpg'}/></span>
+        
       </div>
     </div>
   );
