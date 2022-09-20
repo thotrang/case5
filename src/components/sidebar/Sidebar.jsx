@@ -1,7 +1,7 @@
 import "./sidebar.css";
 import {
-  RssFeed,
   Chat,
+  Home,
   PlayCircleFilledOutlined,
   Group,
   Bookmark,
@@ -25,12 +25,12 @@ export default function Sidebar(propt) {
             <Link className="sidebarListItemText">{propt.myProfile.name}</Link>
           </li>
           <li className="sidebarListItem">
-            <Chat className="sidebarIcon" />
-            <Link className="sidebarListItemText">Chats</Link>
+            <Home className="sidebarIcon" />
+            <Link to="/" className="sidebarListItemText">Home</Link>
           </li>
           <li className="sidebarListItem">
-            <PlayCircleFilledOutlined className="sidebarIcon" />
-            <Link className="sidebarListItemText">Videos</Link>
+            <Chat className="sidebarIcon" />
+            <Link className="sidebarListItemText">Chat</Link>
           </li>
           <li className="sidebarListItem">
             <Group className="sidebarIcon" />
