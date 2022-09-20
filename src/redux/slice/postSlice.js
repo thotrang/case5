@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getAllPost} from "../../service/postService";
+import {getAllPost, addPost} from "../../service/postService";
 
 const initialState = {
     posts: []
@@ -15,6 +15,10 @@ export const postSlice = createSlice({
             })
             .addCase(getAllPost.rejected, (state, action)=>{
                 console.log(action)
+            })
+            .addCase(addPost.fulfilled, (state, action)=>{
+                console.log(action.payload)
+                state.posts.push(action.payload)
             })
 
 }

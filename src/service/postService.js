@@ -18,10 +18,11 @@ export const getDetailPost = createAsyncThunk(
         return res.data;
     }
 )
-export const addCommentPost = createAsyncThunk(
+
+export const addPost = createAsyncThunk(
     'posts/add',
-    async () => {
-        const res = await axios.post(`${baseURL}/posts`);
+    async (value) => {
+        const res = await customAxios.post(`${baseURL}/posts`,value);
         return res.data;
     }
 )

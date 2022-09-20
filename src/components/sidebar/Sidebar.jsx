@@ -11,9 +11,7 @@ import {
   School,
 } from "@material-ui/icons";
 import {Link} from "react-router-dom"
-import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
-
 
 export default function Sidebar(propt) {
   return (
