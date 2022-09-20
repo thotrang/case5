@@ -38,3 +38,11 @@ export const deletePost  = createAsyncThunk(
         const res = await axios.delete(`${baseURL}/${id}`)
     }
 )
+
+export const updateCommentPost  = createAsyncThunk(
+    'posts/update-comment',
+    async ({id, comment}) => {
+        const res = await customAxios.post(`${baseURL}/posts/update-comment/${id}`, {comment: comment})
+        return {id, comment};
+    }
+)

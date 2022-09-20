@@ -76,9 +76,9 @@ export default function Register() {
                         {checkFormEmail && <span style={{ color: 'red' }}>Wrong email... please in put email with validator xxx@xxx.xxx</span>}
                         {checkFormEmail && <br></br>}
 
-                        <input placeholder="Password" className="loginInput" name="password" onChange={(e) => { handleChange(e) }} /> <br></br>
+                        <input placeholder="Password" className="loginInput" name="password" type={"password"} onChange={(e) => { handleChange(e) }} /> <br></br>
 
-                        <input placeholder="Password Again" className="loginInput" name="rePassword" onChange={(e) => { handleChange(e) }} /> <br></br>
+                        <input placeholder="Password Again" className="loginInput" type={"password"} name="rePassword" onChange={(e) => { handleChange(e) }} /> <br></br>
                         {isRePassword && <span style={{ color: 'red' }}>RePassword wrong</span>}
                         {isRePassword && <br></br>}
 

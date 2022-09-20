@@ -52,15 +52,18 @@ export default function Login() {
                             {checkUsername && <span style={{ color: 'red' }}>Username was not exitsted</span>}
                             {checkUsername && <br></br>}
                             <br></br>
-                            <Field placeholder="Password" className="loginInput" name="password" />
+                            <Field placeholder="Password" className="loginInput" name="password" type="password"/>
                             <ErrorMessage name={'password'}></ErrorMessage>
                             {checkPasswordRight && <span style={{ color: 'red' }}>Password wrong</span>}
                             {checkPasswordRight && <br></br>}
                             <br></br>
                             <button className="loginButton">Log In</button>
                             <br></br>
-                            <span className="loginForgot">Forgot Password?</span>
-                            <Link className="linkA" to="/register">Create a New Account</Link>
+                            <div style={{display: "flex", justifyContent: "space-between", flexDirection: "row"}}>
+                                <span className="loginForgot">Forgot Password?</span>
+                                <Link className="linkA" to="/register">Create a new account</Link>
+                            </div>
+
                         </Form>
                     </Formik>
                 </div>

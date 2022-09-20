@@ -26,12 +26,13 @@ export default function Home() {
     dispatch(getAllPost())
     dispatch(getAllApi())
   },[])
+
   return (
     <>
       <Topbar profile = {myProfSelector}/>
       <div className="homeContainer">
-        <Sidebar listUser={listUser}/>
-        <Feed post = {postSelector}/>
+        <Sidebar listUser={listUser} myProfile = {myProfSelector}/>
+        <Feed post = {postSelector} myProfile = {myProfSelector}/>
         <Rightbar />
       </div>
     </>

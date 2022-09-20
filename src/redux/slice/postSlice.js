@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {
     getAllPost,
-    addPost, updatePost, deletePost
+    addPost, updatePost, deletePost, updateCommentPost
 } from "../../service/postService";
 
 const initialState = {
@@ -17,7 +17,7 @@ export const postSlice = createSlice({
                 state.posts = action.payload
             })
             .addCase(getAllPost.rejected, (state, action)=>{
-                console.log('loi')
+                console.log(action)
             })
             .addCase(addPost.fulfilled, (state, action)=>{
                 console.log(action.payload)
@@ -36,6 +36,14 @@ export const postSlice = createSlice({
             })
             .addCase(deletePost.rejected, (state, action) => {
                 console.log('error')
+            })
+            .addCase(updateCommentPost.fulfilled, (state, action) => {
+                state.posts = state.posts.map((post) => {
+                    if(post._id === action.payload.id){
+                        post.comment.unshift(action.payload.comment)
+                    }
+                    return post;
+                })
             })
 
 }

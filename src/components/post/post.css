@@ -97,3 +97,6 @@
     align-items: center;
     border: none;
 }
+.send-Button :hover{
+    cursor: pointer;
+}

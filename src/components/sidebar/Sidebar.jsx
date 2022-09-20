@@ -22,10 +22,8 @@ import TopSideBar from "./TopSideBar";
 export default function Sidebar(propt) {
   const {friends} = useSelector(state => state.friend);
   const dispatch = useDispatch();
-  console.log(friends,"aaaaaaaa")
-  // console.log(users, "user");
+  console.log(propt.listUser, "...");
   useEffect(() => {
-    // console.log("1")
     dispatch(getAllFriendThunk());
   }, [])
   return (

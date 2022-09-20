@@ -4,14 +4,14 @@ import "./feed.css";
 import { Posts } from "../../dummyData";
 
 export default function Feed(propt) {
-    const posts = propt.post.posts
+    const posts = propt.post?.posts
 
   return (
     <div className="feed">
       <div className="feedWrapper">
-        <Share  myAvatar={propt.myAvatar ? propt.myAvatar : `https://upanh123.com/wp-content/uploads/2020/11/anh-tho-chibi.0.jpg`} />
-         {Posts.map((p) => (
-          <Post key={p.id} post={p}/>
+        <Share myAvatar={propt.myProfile}/>
+         {posts?.map((p) => (
+          <Post key={p?._id} post={p} />
         ))}
       </div>
     </div>

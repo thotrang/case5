@@ -5,7 +5,7 @@ import { store } from './redux/store';
 import Register from './page/auth/Register';
 import Login from './page/auth/Login';
 import Home from './page/home/Home';
-// import Profile from './page/profile/Profile';
+import Profile from './page/profile/Profile';
 function App() {
   return (
     <Provider store={store}>
@@ -16,7 +16,7 @@ function App() {
         <Route path = '/' element={<Home></Home>}></Route>
         <Route path = '/home' element={<Home></Home>}></Route>
 
-        {/* <Route path = "/Profile/:id" element = {<Profile></Profile>}></Route> */}
+        <Route path = "/profile" element = {<Profile></Profile>}></Route>
       </Routes>
       </BrowserRouter>
     </Provider>
