@@ -22,12 +22,13 @@ export default function Home() {
     if (!checkToken()) {
       navigate('/login')
     }
-    dispatch(getUserToLocalstorageApi())
     dispatch(getAllPost())
     dispatch(getAllApi())
   },[])
+
   return (
     <>
+    
       <Topbar profile = {myProfSelector}/>
       <div className="homeContainer">
         <Sidebar listUser={listUser} myProfile = {myProfSelector}/>

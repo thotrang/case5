@@ -20,9 +20,9 @@ export default function Sidebar(propt) {
       <div className="sidebarWrapper">
         <ul className="sidebarList">
           <li className="sidebarListItem" onClick={()=>{navigate(`/profile/${propt.myProfile._id}`)}}>
-            <img className="myImg" src={(propt.myProfile.avatar)?propt.myProfile.avatar:'https://upanh123.com/wp-content/uploads/2020/11/anh-tho-chibi.0.jpg'}/>
+            <img className="myImg" src={(propt?.myProfile.avatar)?propt.myProfile.avatar:'https://upanh123.com/wp-content/uploads/2020/11/anh-tho-chibi.0.jpg'}/>
             
-            <Link className="sidebarListItemText">{propt.myProfile.name}</Link>
+            <Link className="sidebarListItemText">{propt?.myProfile.name}</Link>
           </li>
           <li className="sidebarListItem">
             <Home className="sidebarIcon" />

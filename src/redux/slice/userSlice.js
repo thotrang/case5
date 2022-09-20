@@ -21,7 +21,10 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        logout: () => initialState
+        logout: () => {
+            localStorage.clear();
+            return initialState
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -50,8 +53,11 @@ export const userSlice = createSlice({
             })
             //login
             .addCase(loginApi.fulfilled, (state, action) => {
-                localStorage.setItem('accessToken', JSON.stringify(action.payload.token));
-                state.token = action.payload.token
+                localStorage.setItem('accessToken', JSON.stringify(action.payload.data.token));
+                localStorage.setItem('user', JSON.stringify(action.payload.data.user));
+
+                state.myProfile = action.payload.data.user
+                return action.payload.navigate
             })
             .addCase(loginApi.rejected, (state, action) => {
                 if (action.error.message.includes('404')) {
@@ -63,9 +69,12 @@ export const userSlice = createSlice({
                 }
             })
             // get userLocal
+            //
             .addCase(getUserToLocalstorageApi.fulfilled, (state, action) => {
                 state.myProfile = action.payload
             })
+            //
+
             .addCase(getUserToLocalstorageApi.rejected,(state,action)=>{
                 console.log(action);
             })

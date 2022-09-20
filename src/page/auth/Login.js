@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import "./login.css";
-import { checkPassword, checkUsernameExitsted } from "../../redux/slice/userSlice";
+import { checkPassword, checkUsernameExitsted, myProfile } from "../../redux/slice/userSlice";
+import { useEffect } from "react";
 
 
 export default function Login() {
@@ -14,12 +15,10 @@ export default function Login() {
 
     const handleSubmit = (user) => {
 
-        dispatch(loginApi({ user, navigate }))
-
+        dispatch(loginApi({user, navigate}))
     }
     const checkPasswordRight = useSelector(checkPassword)
     const checkUsername = useSelector(checkUsernameExitsted)
-
     return (
         <div className="login">
             <div className="loginWrapper">
