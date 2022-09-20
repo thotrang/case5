@@ -3,12 +3,11 @@ import Share from "../share/Share";
 import "./feed.css";
 
 export default function Feed(propt) {
-    const posts = propt.post.posts
-
+    const posts = propt.post
     return (
     <div className="feed">
       <div className="feedWrapper">
-        <Share myAvatar={propt.myProfile}/>
+        {propt.isShare && <Share myAvatar={propt.myProfile}/>}
          {posts.map((p) => (
           <Post key={p._id} post={p} />
         ))}

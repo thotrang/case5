@@ -1,3 +1,4 @@
+import { async } from "@firebase/util";
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios  from "axios";
 import {customAxios} from "./apiToken";
@@ -24,6 +25,13 @@ export const addPost = createAsyncThunk(
     async (value) => {
         const res = await customAxios.post(`${baseURL}/posts`,value);
         return res.data;
+    }
+)
+export const getPostInProfile = createAsyncThunk(
+    'posts/getPost',
+    async (id) => {
+        const res = await customAxios.get(`${baseURL}/posts/${id}`)
+        return res.data
     }
 )
 export const updatePost = createAsyncThunk(

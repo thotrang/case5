@@ -1,8 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getAllPost, addPost} from "../../service/postService";
+import {getAllPost, addPost, getPostInProfile} from "../../service/postService";
 
 const initialState = {
-    posts: []
+    posts: [],
+    postsInProfile:[]
 }
 export const postSlice = createSlice({
 
@@ -17,10 +18,14 @@ export const postSlice = createSlice({
                 console.log(action)
             })
             .addCase(addPost.fulfilled, (state, action)=>{
-                console.log(action.payload)
                 state.posts.push(action.payload)
             })
-
+            .addCase(getPostInProfile.fulfilled,(state,action)=>{
+                state.postsInProfile = action.payload
+            })
+            .addCase(getPostInProfile.rejected,(state,action)=>{
+                console.log('lỗi getPostInProfile');
+            })
 }
 })
 export default postSlice.reducer

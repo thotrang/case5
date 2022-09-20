@@ -10,15 +10,16 @@ import {
   Event,
   School,
 } from "@material-ui/icons";
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import CloseFriend from "../closeFriend/CloseFriend";
 
 export default function Sidebar(propt) {
+  const navigate = useNavigate()
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
         <ul className="sidebarList">
-          <li className="sidebarListItem">
+          <li className="sidebarListItem" onClick={()=>{navigate(`/profile/${propt.myProfile._id}`)}}>
             <img className="myImg" src={(propt.myProfile.avatar)?propt.myProfile.avatar:'https://upanh123.com/wp-content/uploads/2020/11/anh-tho-chibi.0.jpg'}/>
             
             <Link className="sidebarListItemText">{propt.myProfile.name}</Link>

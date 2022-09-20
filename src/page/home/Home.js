@@ -4,7 +4,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Feed from "../../components/feed/Feed";
 import Rightbar from "../../components/rightbar/Rightbar";
 import "./home.css"
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { checkToken } from "../../service/apiToken";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,7 +17,7 @@ export default function Home() {
   const navigate = useNavigate()
   const myProfSelector = useSelector(myProfile);
   const listUser = useSelector(listAllUser)
-  const postSelector = useSelector(state => state.posts)
+  const postSelector = useSelector(state => state.posts.posts)
   useEffect(() => {
     if (!checkToken()) {
       navigate('/login')

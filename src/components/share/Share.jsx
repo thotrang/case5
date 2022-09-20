@@ -25,6 +25,7 @@ export default function Share(propt) {
           image: null
         }))
       }
+
       else {
         const imageRef = ref(storage, `images/${image.name}`)
         uploadBytes(imageRef, image)
