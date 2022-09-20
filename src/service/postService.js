@@ -1,10 +1,8 @@
-import { async } from "@firebase/util";
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios  from "axios";
 import {customAxios} from "./apiToken";
 
 const baseURL = "http://localhost:3000";
- // import customAxios from './apiToken'
 export const getAllPost = createAsyncThunk(
     'posts/getAll',
     async () => {
