@@ -1,7 +1,11 @@
 import "./post.css";
 import { MoreVert } from "@material-ui/icons";
-import { Users } from "../../dummyData";
-import { useState } from "react";
+import MenuItem from "@mui/material/MenuItem";
+import Menu from "@mui/material/Menu";
+import {useNavigate} from "react-router-dom";
+import * as React from "react"
+import {useDispatch} from "react-redux";
+import {deletePost} from "../../service/postService";
 
 export default function Post({ post }) {
   // const [like,setLike] = useState(post.like)
@@ -11,6 +15,20 @@ export default function Post({ post }) {
   //   setLike(isLiked ? like-1 : like+1)
   //   setIsLiked(!isLiked)
   // }
+  const [anchorEl,setAnchorEl] = React.useState(null);
+  const navigate = useNavigate();
+  const open = Boolean(anchorEl);
+  const dispatch = useDispatch();
+  const handleClick = (e) => {
+    setAnchorEl(e.currentTarget)
+  }
+  const handleClose = () => {
+    // navigate(`/home`)
+    setAnchorEl(null)
+  }
+  const handleDelete = (id) => {
+    dispatch(deletePost(id))
+  }
   return (
     <div className="post">
       <div className="postWrapper">
@@ -26,7 +44,13 @@ export default function Post({ post }) {
             </span>
             <span className="postDate">{post.dob}</span>
           </div>
-          <div className="postTopRight">
+          <div className="postTopRight"
+          id="demo-icon-button"
+               aria-controls={open ? 'demo-positioned-menu' : undefined}
+               aria-haspopup="true"
+               aria-expanded={open ? 'true' : undefined}
+               onClick={handleClick}
+          >
             <MoreVert />
           </div>
         </div>
@@ -44,6 +68,18 @@ export default function Post({ post }) {
             <span className="postCommentText">{post.comment} comments</span>
           </div>
         </div> */}
+        <Menu
+            id="demo-icon-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            onClick={(e) => e.stopPropagation()}
+            MenuListProps={{
+              "aria-labelledby": "demo-icon-button",
+            }}
+        >
+          <MenuItem onClick={() => handleDelete(post._id)}>Delete Post</MenuItem>
+        </Menu>
       </div>
     </div>
   );

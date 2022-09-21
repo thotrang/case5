@@ -7,10 +7,6 @@ import { useDispatch } from "react-redux";
 import { addPost } from "../../service/postService"
 export default function Share(propt) {
   const dispatch = useDispatch()
-  const [post, setPost] = useState({
-    text: '',
-    image: ''
-  })
   const [text, setText] = useState('')
   const [image, setImage] = useState(null);
 
@@ -24,6 +20,8 @@ export default function Share(propt) {
           text: text,
           image: null
         }))
+        setText('')
+        setImage(null)
       }
 
       else {
@@ -41,6 +39,8 @@ export default function Share(propt) {
                 });
                
             });
+        setText('')
+        setImage(null)
       }
 
     }
@@ -52,6 +52,7 @@ export default function Share(propt) {
         <div className="shareTop">
           <img className="shareProfileImg" src={(propt.myAvatar.avatar) ? propt.myAvatar.avatar : 'https://upanh123.com/wp-content/uploads/2020/11/anh-tho-chibi.0.jpg'} alt="" />
           <input
+              value={text}
             placeholder={`What's in your mind  ${propt.myAvatar.name}`}
             className="shareInput"
             name="text"
