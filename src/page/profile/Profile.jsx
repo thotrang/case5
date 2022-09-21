@@ -10,6 +10,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllApi, getUserToLocalstorageApi } from "../../service/userService";
 import { myProfile, listAllUser } from "../../redux/slice/userSlice"
 import { getPostInProfile } from "../../service/postService";
+
+
+
 export default function Profile() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -26,6 +29,9 @@ export default function Profile() {
     dispatch(getAllApi())
   }, [param.id])
   const isShare = myProfSelector._id === param.id
+
+
+
   return (
     <>
       <Topbar profile = {myProfSelector}/>
@@ -45,10 +51,6 @@ export default function Profile() {
                 alt=""
               />
             </div>
-            {/* <div className="profileInfo">
-              <h4 className="profileInfoName">Safak Kocaoglu</h4>
-              <span className="profileInfoDesc">Hello my friends!</span>
-            </div> */}
           </div>
           <div className="profileRightBottom">
             <Feed post = {postSelector} myProfile = {myProfSelector} isShare = {isShare}/>
@@ -56,6 +58,7 @@ export default function Profile() {
           </div>
         </div>
       </div>
+
     </>
   );
 }

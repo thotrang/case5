@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import {
     getAllComment,
     getDetailComment,
@@ -9,15 +9,16 @@ import {
 
 const initialState = {
     comments: [],
-    comment : ""
+    comment: ""
 }
 export const commentSlice = createSlice({
     name: "comments",
     initialState,
     extraReducers: (builder) => {
-        builder.addCase(getAllComment.fulfilled, (state, action) => {
-            state.comments = action.payload
-        })
+        builder.
+            addCase(getAllComment.fulfilled, (state, action) => {
+                state.comments = action.payload
+            })
             .addCase(getDetailComment.fulfilled, (state, action) => {
                 state.comment = state.comment.find((comment) => {
                     return comment.id !== action.payload.id
@@ -35,7 +36,7 @@ export const commentSlice = createSlice({
                 })
             })
             .addCase(deleteComment.fulfilled, (state, action) => {
-                state.comments = state.comments.filter((comment) =>{
+                state.comments = state.comments.filter((comment) => {
                     return comment.id !== action.payload.data.id
                 })
             })

@@ -7,10 +7,7 @@ import { useDispatch } from "react-redux";
 import { addPost } from "../../service/postService"
 export default function Share(propt) {
   const dispatch = useDispatch()
-  const [post, setPost] = useState({
-    text: '',
-    image: ''
-  })
+ 
   const [text, setText] = useState('')
   const [image, setImage] = useState(null);
 

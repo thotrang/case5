@@ -1,16 +1,18 @@
 import "./post.css";
 import { MoreVert } from "@material-ui/icons";
-import { Users } from "../../dummyData";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import Comments from "./comment/Comment.js"
 
 export default function Post({ post }) {
-  // const [like,setLike] = useState(post.like)
-  // const [isLiked,setIsLiked] = useState(false)
+  const [like, setLike] = useState(post.like)
+  const [isLiked, setIsLiked] = useState(false)
+  const [isComment, setIsComment] = useState(false)
+  const likeHandler = () => {
+    setLike(isLiked ? like - 1 : like + 1)
+    setIsLiked(!isLiked)
+  }
 
-  // const likeHandler =()=>{
-  //   setLike(isLiked ? like-1 : like+1)
-  //   setIsLiked(!isLiked)
-  // }
   return (
     <div className="post">
       <div className="postWrapper">
@@ -18,12 +20,12 @@ export default function Post({ post }) {
           <div className="postTopLeft">
             <img
               className="postProfileImg"
-              src={(post.userId.avatar)?post.userId.avatar:'https://1.bigdata-vn.com/wp-content/uploads/2021/10/TOP-999-hinh-anh-tho-Chibi-dep-de-thuong-lam.jpg'}
+              src={(post.userId.avatar) ? post.userId.avatar : 'https://1.bigdata-vn.com/wp-content/uploads/2021/10/TOP-999-hinh-anh-tho-Chibi-dep-de-thuong-lam.jpg'}
               alt=""
             />
-            <span className="postUsername">
+            <Link className="postUsername" to={`/profile/${post.userId._id}`}>
               {post.userId.name}
-            </span>
+            </Link>
             <span className="postDate">{post.dob}</span>
           </div>
           <div className="postTopRight">
@@ -34,17 +36,26 @@ export default function Post({ post }) {
           <span className="postText">{post?.text}</span>
           <img className="postImg" src={post.image} alt="" />
         </div>
-        {/* <div className="postBottom">
+        <div className="postBottom">
           <div className="postBottomLeft">
-            <img className="likeIcon" src="assets/like.png" onClick={likeHandler} alt="" />
-            <img className="likeIcon" src="assets/heart.png" onClick={likeHandler} alt="" />
+            <img className="likeIcon"
+              src="https://raw.githubusercontent.com/safak/youtube/react-social-ui/public/assets/like.png"
+              onClick={likeHandler} alt="" />
+            <img className="likeIcon"
+              src="https://raw.githubusercontent.com/safak/youtube/react-social-ui/public/assets/heart.png"
+              onClick={likeHandler} alt="" />
             <span className="postLikeCounter">{like} people like it</span>
           </div>
           <div className="postBottomRight">
-            <span className="postCommentText">{post.comment} comments</span>
+            <span className="postCommentText"
+              onClick={e => setIsComment(!isComment)}> comments</span>
           </div>
-        </div> */}
+
+        </div>
+
       </div>
+      {isComment && <Comments post={post}></Comments>}
+
     </div>
   );
 }

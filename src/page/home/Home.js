@@ -18,12 +18,17 @@ export default function Home() {
   const myProfSelector = useSelector(myProfile);
   const listUser = useSelector(listAllUser)
   const postSelector = useSelector(state => state.posts.posts)
+
   useEffect(() => {
     if (!checkToken()) {
       navigate('/login')
     }
     dispatch(getAllPost())
     dispatch(getAllApi())
+
+    if(myProfSelector.name == ''){
+      dispatch(getUserToLocalstorageApi())
+    }
   },[])
 
   return (

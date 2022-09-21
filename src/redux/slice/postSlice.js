@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getAllPost, addPost, getPostInProfile} from "../../service/postService";
+import {getAllPost, addPost, getPostInProfile, updateCommentPost} from "../../service/postService";
 
 const initialState = {
     posts: [],
@@ -25,6 +25,18 @@ export const postSlice = createSlice({
             })
             .addCase(getPostInProfile.rejected,(state,action)=>{
                 console.log('lỗi getPostInProfile');
+            })
+            .addCase(updateCommentPost.fulfilled, (state, action) => {
+                console.log(action);
+                state.posts = state.posts.map((post) => {
+                    if(post._id === action.payload.id){
+                        post.comment.unshift(action.payload.comment)
+                    }
+                    return post;
+                })
+            })
+            .addCase(updateCommentPost.rejected,(state,action)=>{
+                console.log(action);
             })
 }
 })

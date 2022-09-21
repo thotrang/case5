@@ -5,7 +5,8 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import * as React from "react";
 import { useDispatch } from "react-redux";
-import {logout} from "../../redux/slice/userSlice"
+
+
 export default function Topbar(propt) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -16,15 +17,19 @@ export default function Topbar(propt) {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    navigate(`/profile/${propt.profile._id}`)
+
     setAnchorEl(null);
   };
+  const handleProfile = () => {
+    setAnchorEl(null);
+    navigate(`/profile/${propt.profile._id}`)
+  }
   const handleLogout = () => {
     localStorage.clear();
-    navigate("/login")
-
-    
+    navigate("/login") 
   };
+
+
   return (
 
     <div className="topbarContainer">
@@ -79,11 +84,14 @@ export default function Topbar(propt) {
             horizontal: 'left',
           }}
         >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <MenuItem onClick={handleClose}>My account</MenuItem>
+          
+          <MenuItem onClick={handleProfile}>Profile</MenuItem>
+          <MenuItem onClick={handleProfile}>My account</MenuItem>
           <MenuItem onClick={handleLogout}>Logout</MenuItem>
         </Menu>
       </div>
+
+  
     </div>
   );
 }

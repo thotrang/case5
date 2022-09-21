@@ -14,7 +14,9 @@ const initialState = {
     checkUsernameExitsted: false,
     checkPassword: false,
     listAllUser: [],
-    myProfile: {}
+    myProfile: {
+        name: ""
+    }
 
 }
 export const userSlice = createSlice({

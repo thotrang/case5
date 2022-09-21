@@ -32,6 +32,8 @@
   font-size: 15px;
   font-weight: 500;
   margin: 0 10px;
+  color: black;
+  text-decoration:none;
 }
 
 .postDate{
@@ -75,4 +77,13 @@
     cursor: pointer;
     border-bottom: 1px dashed gray;
     font-size: 15px;
+}
+.comments {
+  display: flex;
+  outline: none;
+  border-radius: 14px;
+  background-color: #f0f2f5;
+  align-items: center;
+  border: none;
+  width: 90%;
 }
